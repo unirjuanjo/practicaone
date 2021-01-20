@@ -1,9 +1,15 @@
+org: unirorganizacion
+app: todo-list-serverless
 service: serverless-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0"
 
+custom:
+  myStage: ${opt:stage, self:provider.stage}
+
 provider:
   name: aws
+  stage: dev
   runtime: python3.8
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
