@@ -1,1 +1,1 @@
-Esto es una prueba pata añadir un fichero
+Esto es una prueba pata añadir un fichero de prueba
