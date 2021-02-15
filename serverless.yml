@@ -5,7 +5,7 @@ service: serverless-rest-api-with-dynamodb
 frameworkVersion: ">=1.1.0"
 custom:
   config: 
-    stage-default: pre
+    stage-default: pro
     
 provider:
   name: aws
