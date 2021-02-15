@@ -3,13 +3,10 @@ app: todo-list-serverless
 service: serverless-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0"
-<<<<<<< HEAD
 
-=======
->>>>>>> f0564fa3557fd295b6e899b56b932e00ce790507
 custom:
   config: 
-    stage-default: pre
+    stage-default: review
     
 provider:
   name: aws
