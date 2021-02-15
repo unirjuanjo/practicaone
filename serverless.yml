@@ -3,10 +3,9 @@ app: todo-list-serverless
 service: serverless-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0"
-
 custom:
   config: 
-    stage-default: review
+    stage-default: pre
     
 provider:
   name: aws
@@ -65,22 +64,6 @@ functions:
           path: todos/{id}/fr
           method: get
           cors: true
-          
-  #traducir_es:
-  #  handler: todos/traducir_es.traducir_es
-  #  events:
-  #    - http:
-  #        path: todos/{id}/es
-  #        method: get
-  #        cors: true
-        
-  #traducir_fr:
-  #  handler: todos/traducir_fr.traducir_fr
-  #  events:
-  #    - http:
-  #        path: todos/{id}/fr
-  #        method: get
-  #        cors: true 
   update:
     handler: todos/update.update
     events:
