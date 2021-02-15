@@ -1,9 +1,16 @@
+org: unirorganizacion
+app: todo-list-serverless
 service: serverless-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0"
 
+custom:
+  config: 
+    stage-default: pre
+    
 provider:
   name: aws
+  stage: ${opt:stage, self:custom.config.stage-default}
   runtime: python3.8
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
@@ -35,14 +42,45 @@ functions:
           method: get
           cors: true
 
-  get:
+  get_en:
     handler: todos/get.get
     events:
       - http:
           path: todos/{id}
           method: get
           cors: true
-
+          
+  get_es:
+    handler: todos/get.traducir_es
+    events:
+      - http:
+          path: todos/{id}/es
+          method: get
+          cors: true
+          
+  get_fr:
+    handler: todos/get.traducir_fr
+    events:
+      - http:
+          path: todos/{id}/fr
+          method: get
+          cors: true
+          
+  #traducir_es:
+  #  handler: todos/traducir_es.traducir_es
+  #  events:
+  #    - http:
+  #        path: todos/{id}/es
+  #        method: get
+  #        cors: true
+        
+  #traducir_fr:
+  #  handler: todos/traducir_fr.traducir_fr
+  #  events:
+  #    - http:
+  #        path: todos/{id}/fr
+  #        method: get
+  #        cors: true 
   update:
     handler: todos/update.update
     events:
