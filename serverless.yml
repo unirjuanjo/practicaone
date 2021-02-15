@@ -7,7 +7,6 @@ custom:
   config: 
     stage-default: pre
     
-    
 provider:
   name: aws
   stage: ${opt:stage, self:custom.config.stage-default}
